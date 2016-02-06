@@ -105,7 +105,6 @@ MODULE_PARM_DESC(myintArray, "An array of integers");
 
 int hello_init(void)
 {
-  printk(KERN_INFO "Hello world !.\n");
         
 
   /* 
@@ -113,6 +112,16 @@ int hello_init(void)
    */
   int i;
   printk(KERN_INFO "Hello,world 5 \n=====================================\n");
+  printk(KERN_INFO "myshort is a short integer: %hd\n", myshort);
+  printk(KERN_INFO "myint is an integer: %d\n", myint);
+  printk(KERN_INFO "mylong is a long integer: %ld\n", mylong);
+  printk(KERN_INFO "mystring is a string: %s\n", mystring);
+  for (i = 0; i < (sizeof myintArray / sizeof (int)); i++)
+    {
+      printk(KERN_INFO "myintArray[%d] = %d\n", i, myintArray[i]);
+    }
+  printk(KERN_INFO "got %d arguments for myintArray.\n", arr_argc);
+	
   return 0;
 }
 
